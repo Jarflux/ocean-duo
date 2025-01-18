@@ -1,20 +1,66 @@
 [gd_scene load_steps=5 format=3 uid="uid://f8af7hjigh5l"]
 
+[ext_resource type="Texture2D" uid="uid://3vbdhirhcgwt" path="res://images/net-handle.png" id="1_dahh1"]
+[ext_resource type="Script" path="res://scripts/move.gd" id="2_ed43w"]
+
+[sub_resource type="GDScript" id="GDScript_ufykt"]
+resource_name = "net"
+script/source = "extends Node
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
 [ext_resource type="Texture2D" uid="uid://3vbdhirhcgwt" path="res://images/net-handle.png" id="1_i4yd0"]
 [ext_resource type="AudioStream" uid="uid://c03yghcy4shlm" path="res://sounds/background/underwater-1.mp3" id="2_u3foo"]
 [ext_resource type="Script" path="res://scripts/audio/Background.gd" id="3_kqgny"]
 [ext_resource type="Script" path="res://scripts/audio/AudioManager.gd" id="4_u5kpd"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g0xyc"]
+size = Vector2(24, 24)
+
 [node name="Game" type="Node2D"]
+position = Vector2(91, 51)
 
 [node name="Net" type="Node" parent="."]
 
-[node name="Left" type="Sprite2D" parent="Net"]
+[node name="Left" type="RigidBody2D" parent="Net"]
+position = Vector2(50, 61)
+gravity_scale = 0.0
+script = ExtResource("2_ed43w")
+button_move_left = "move_left_red"
+button_move_right = "move_right_red"
+button_move_up = "move_up_red"
+button_move_down = "move_down_red"
+
+[node name="Sprite" type="Sprite2D" parent="Net/Left"]
 self_modulate = Color(1, 0, 0, 1)
 texture = ExtResource("1_i4yd0")
 
-[node name="Right" type="Sprite2D" parent="Net"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Net/Left"]
+shape = SubResource("RectangleShape2D_g0xyc")
+
+[node name="Right" type="RigidBody2D" parent="Net"]
+position = Vector2(151, 63)
+gravity_scale = 0.0
+script = ExtResource("2_ed43w")
+button_move_left = "move_left_green"
+button_move_right = "move_right_green"
+button_move_up = "move_up_green"
+button_move_down = "move_down_green"
+metadata/button_move_left = "move_left_red"
+
+[node name="Sprite" type="Sprite2D" parent="Net/Right"]
 modulate = Color(0, 1, 0, 1)
+texture = ExtResource("1_dahh1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Net/Right"]
+shape = SubResource("RectangleShape2D_g0xyc")
 position = Vector2(81, 0)
 texture = ExtResource("1_i4yd0")
 
