@@ -1,24 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://f8af7hjigh5l"]
+[gd_scene load_steps=5 format=3 uid="uid://f8af7hjigh5l"]
 
 [ext_resource type="Texture2D" uid="uid://3vbdhirhcgwt" path="res://images/net-handle.png" id="1_dahh1"]
-
-[sub_resource type="GDScript" id="GDScript_ufykt"]
-resource_name = "net"
-script/source = "extends Node
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-"
+[ext_resource type="Script" path="res://scripts/audio/AudioManager.gd" id="2_4ad8m"]
+[ext_resource type="AudioStream" uid="uid://c03yghcy4shlm" path="res://sounds/background/underwater-1.mp3" id="2_snaw2"]
+[ext_resource type="Script" path="res://scripts/audio/Background.gd" id="3_anm7d"]
 
 [node name="Game" type="Node2D"]
 
 [node name="Net" type="Node" parent="."]
-script = SubResource("GDScript_ufykt")
 
 [node name="Left" type="Sprite2D" parent="Net"]
 self_modulate = Color(1, 0, 0, 1)
@@ -28,3 +17,12 @@ texture = ExtResource("1_dahh1")
 modulate = Color(0, 1, 0, 1)
 position = Vector2(81, 0)
 texture = ExtResource("1_dahh1")
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="Background" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("2_snaw2")
+script = ExtResource("3_anm7d")
+
+[node name="AudioManager" type="Node" parent="Audio"]
+script = ExtResource("2_4ad8m")
