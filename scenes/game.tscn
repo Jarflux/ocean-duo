@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://f8af7hjigh5l"]
 
 [ext_resource type="Texture2D" uid="uid://3vbdhirhcgwt" path="res://images/net-handle.png" id="1_dahh1"]
-[ext_resource type="Script" path="res://scenes/right.gd" id="2_khlt3"]
+[ext_resource type="Script" path="res://scripts/move.gd" id="2_ed43w"]
 
 [sub_resource type="GDScript" id="GDScript_ufykt"]
 resource_name = "net"
@@ -26,8 +26,13 @@ position = Vector2(91, 51)
 script = SubResource("GDScript_ufykt")
 
 [node name="Left" type="RigidBody2D" parent="Net"]
-position = Vector2(115, 63)
+position = Vector2(50, 61)
 gravity_scale = 0.0
+script = ExtResource("2_ed43w")
+button_move_left = "move_left_red"
+button_move_right = "move_right_red"
+button_move_up = "move_up_red"
+button_move_down = "move_down_red"
 
 [node name="Sprite" type="Sprite2D" parent="Net/Left"]
 self_modulate = Color(1, 0, 0, 1)
@@ -39,11 +44,16 @@ shape = SubResource("RectangleShape2D_g0xyc")
 [node name="Right" type="RigidBody2D" parent="Net"]
 position = Vector2(151, 63)
 gravity_scale = 0.0
+script = ExtResource("2_ed43w")
+button_move_left = "move_left_green"
+button_move_right = "move_right_green"
+button_move_up = "move_up_green"
+button_move_down = "move_down_green"
+metadata/button_move_left = "move_left_red"
 
 [node name="Sprite" type="Sprite2D" parent="Net/Right"]
 modulate = Color(0, 1, 0, 1)
 texture = ExtResource("1_dahh1")
-script = ExtResource("2_khlt3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Net/Right"]
 shape = SubResource("RectangleShape2D_g0xyc")
