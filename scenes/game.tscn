@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://f8af7hjigh5l"]
+[gd_scene load_steps=5 format=3 uid="uid://f8af7hjigh5l"]
 
 [ext_resource type="Texture2D" uid="uid://3vbdhirhcgwt" path="res://images/net-handle.png" id="1_dahh1"]
+[ext_resource type="Script" path="res://scenes/right.gd" id="2_khlt3"]
 
 [sub_resource type="GDScript" id="GDScript_ufykt"]
 resource_name = "net"
@@ -15,16 +16,34 @@ func _process(delta):
 	pass
 "
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g0xyc"]
+size = Vector2(24, 24)
+
 [node name="Game" type="Node2D"]
+position = Vector2(91, 51)
 
 [node name="Net" type="Node" parent="."]
 script = SubResource("GDScript_ufykt")
 
-[node name="Left" type="Sprite2D" parent="Net"]
+[node name="Left" type="RigidBody2D" parent="Net"]
+position = Vector2(115, 63)
+gravity_scale = 0.0
+
+[node name="Sprite" type="Sprite2D" parent="Net/Left"]
 self_modulate = Color(1, 0, 0, 1)
 texture = ExtResource("1_dahh1")
 
-[node name="Right" type="Sprite2D" parent="Net"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Net/Left"]
+shape = SubResource("RectangleShape2D_g0xyc")
+
+[node name="Right" type="RigidBody2D" parent="Net"]
+position = Vector2(151, 63)
+gravity_scale = 0.0
+
+[node name="Sprite" type="Sprite2D" parent="Net/Right"]
 modulate = Color(0, 1, 0, 1)
-position = Vector2(81, 0)
 texture = ExtResource("1_dahh1")
+script = ExtResource("2_khlt3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Net/Right"]
+shape = SubResource("RectangleShape2D_g0xyc")
