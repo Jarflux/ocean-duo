@@ -16,6 +16,11 @@ func _process(delta):
 	pass
 "
 
+[ext_resource type="Texture2D" uid="uid://3vbdhirhcgwt" path="res://images/net-handle.png" id="1_i4yd0"]
+[ext_resource type="AudioStream" uid="uid://c03yghcy4shlm" path="res://sounds/background/underwater-1.mp3" id="2_u3foo"]
+[ext_resource type="Script" path="res://scripts/audio/Background.gd" id="3_kqgny"]
+[ext_resource type="Script" path="res://scripts/audio/AudioManager.gd" id="4_u5kpd"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g0xyc"]
 size = Vector2(24, 24)
 
@@ -23,7 +28,6 @@ size = Vector2(24, 24)
 position = Vector2(91, 51)
 
 [node name="Net" type="Node" parent="."]
-script = SubResource("GDScript_ufykt")
 
 [node name="Left" type="RigidBody2D" parent="Net"]
 position = Vector2(50, 61)
@@ -36,7 +40,7 @@ button_move_down = "move_down_red"
 
 [node name="Sprite" type="Sprite2D" parent="Net/Left"]
 self_modulate = Color(1, 0, 0, 1)
-texture = ExtResource("1_dahh1")
+texture = ExtResource("1_i4yd0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Net/Left"]
 shape = SubResource("RectangleShape2D_g0xyc")
@@ -57,3 +61,14 @@ texture = ExtResource("1_dahh1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Net/Right"]
 shape = SubResource("RectangleShape2D_g0xyc")
+position = Vector2(81, 0)
+texture = ExtResource("1_i4yd0")
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="Background" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("2_u3foo")
+script = ExtResource("3_kqgny")
+
+[node name="AudioManager" type="Node" parent="Audio"]
+script = ExtResource("4_u5kpd")

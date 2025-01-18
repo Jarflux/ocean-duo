@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="Ocean-duo"
-run/main_scene="res://scenes/game.tscn"
+config/name="Ocean Duo"
+run/main_scene="res://scenes/Game.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
