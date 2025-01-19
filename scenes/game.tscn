@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://f8af7hjigh5l"]
+[gd_scene load_steps=12 format=3 uid="uid://f8af7hjigh5l"]
 
+[ext_resource type="Texture2D" uid="uid://di3q7duwh5x0t" path="res://images/nets-icon-yellow.png" id="1_bnpbo"]
 [ext_resource type="Script" path="res://scripts/move.gd" id="2_ed43w"]
 [ext_resource type="AudioStream" uid="uid://c03yghcy4shlm" path="res://sounds/background/underwater-1.mp3" id="2_u3foo"]
 [ext_resource type="Texture2D" uid="uid://d01rd4b4in37y" path="res://images/yellow-orb.png" id="2_vvqx0"]
@@ -7,13 +8,39 @@
 [ext_resource type="Script" path="res://scripts/audio/Background.gd" id="3_kqgny"]
 [ext_resource type="Texture2D" uid="uid://vr1o4kpmvkjk" path="res://images/green-orb.png" id="4_0101i"]
 [ext_resource type="Script" path="res://scripts/audio/AudioManager.gd" id="4_u5kpd"]
-[ext_resource type="PackedScene" uid="uid://ca42kw07xdxie" path="res://Title.tscn" id="8_prqdg"]
+[ext_resource type="PackedScene" uid="uid://c0flwujmi120h" path="res://Title.tscn" id="8_prqdg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qehp8"]
+font_size = 50
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g0xyc"]
 size = Vector2(24, 24)
 
 [node name="Game" type="Node2D"]
 position = Vector2(106, 64)
+
+[node name="GUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Nets" type="Label" parent="GUI"]
+layout_mode = 0
+offset_left = -34.0
+offset_top = -32.0
+offset_right = 6.0
+offset_bottom = 37.0
+text = "5"
+label_settings = SubResource("LabelSettings_qehp8")
+
+[node name="NetsIcon" type="TextureRect" parent="GUI/Nets"]
+layout_mode = 0
+offset_left = -64.0
+offset_top = -40.0
+offset_right = 64.0
+offset_bottom = 88.0
+texture = ExtResource("1_bnpbo")
 
 [node name="Net" type="Node2D" parent="."]
 position = Vector2(358, 368)
