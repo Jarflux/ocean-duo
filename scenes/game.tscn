@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://f8af7hjigh5l"]
 
-[ext_resource type="Texture2D" uid="uid://3vbdhirhcgwt" path="res://images/net-handle.png" id="1_dahh1"]
-[ext_resource type="Script" path="res://scripts/audio/AudioManager.gd" id="2_4ad8m"]
-[ext_resource type="AudioStream" uid="uid://c03yghcy4shlm" path="res://sounds/background/underwater-1.mp3" id="2_snaw2"]
-[ext_resource type="Script" path="res://scripts/audio/Background.gd" id="3_anm7d"]
+[ext_resource type="Texture2D" uid="uid://3vbdhirhcgwt" path="res://images/net-handle.png" id="1_i4yd0"]
+[ext_resource type="AudioStream" uid="uid://c03yghcy4shlm" path="res://sounds/background/underwater-1.mp3" id="2_u3foo"]
+[ext_resource type="Script" path="res://scripts/audio/Background.gd" id="3_kqgny"]
+[ext_resource type="Script" path="res://scripts/audio/AudioManager.gd" id="4_u5kpd"]
 
 [node name="Game" type="Node2D"]
 
@@ -11,18 +11,18 @@
 
 [node name="Left" type="Sprite2D" parent="Net"]
 self_modulate = Color(1, 0, 0, 1)
-texture = ExtResource("1_dahh1")
+texture = ExtResource("1_i4yd0")
 
 [node name="Right" type="Sprite2D" parent="Net"]
 modulate = Color(0, 1, 0, 1)
 position = Vector2(81, 0)
-texture = ExtResource("1_dahh1")
+texture = ExtResource("1_i4yd0")
 
 [node name="Audio" type="Node" parent="."]
 
 [node name="Background" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("2_snaw2")
-script = ExtResource("3_anm7d")
+stream = ExtResource("2_u3foo")
+script = ExtResource("3_kqgny")
 
 [node name="AudioManager" type="Node" parent="Audio"]
-script = ExtResource("2_4ad8m")
+script = ExtResource("4_u5kpd")
