@@ -1,14 +1,18 @@
-[gd_scene load_steps=12 format=3 uid="uid://f8af7hjigh5l"]
+[gd_scene load_steps=16 format=3 uid="uid://f8af7hjigh5l"]
 
+[ext_resource type="Script" path="res://scripts/Game.gd" id="1_bmdfc"]
 [ext_resource type="Texture2D" uid="uid://di3q7duwh5x0t" path="res://images/nets-icon-yellow.png" id="1_bnpbo"]
-[ext_resource type="Script" path="res://scripts/move.gd" id="2_ed43w"]
+[ext_resource type="Script" path="res://scripts/Move.gd" id="2_ed43w"]
+[ext_resource type="Script" path="res://scripts/Gui.gd" id="2_ig2vi"]
 [ext_resource type="AudioStream" uid="uid://c03yghcy4shlm" path="res://sounds/background/underwater-1.mp3" id="2_u3foo"]
 [ext_resource type="Texture2D" uid="uid://d01rd4b4in37y" path="res://images/yellow-orb.png" id="2_vvqx0"]
 [ext_resource type="Texture2D" uid="uid://c5n5jmao6nxdt" path="res://images/net-around-orb.png" id="3_eun46"]
+[ext_resource type="Script" path="res://scripts/Net.gd" id="3_id65u"]
 [ext_resource type="Script" path="res://scripts/audio/Background.gd" id="3_kqgny"]
 [ext_resource type="Texture2D" uid="uid://vr1o4kpmvkjk" path="res://images/green-orb.png" id="4_0101i"]
 [ext_resource type="Script" path="res://scripts/audio/AudioManager.gd" id="4_u5kpd"]
-[ext_resource type="PackedScene" uid="uid://c0flwujmi120h" path="res://Title.tscn" id="8_prqdg"]
+[ext_resource type="PackedScene" uid="uid://c0flwujmi120h" path="res://scenes/Title.tscn" id="8_prqdg"]
+[ext_resource type="Script" path="res://scripts/Debug.gd" id="13_23o80"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qehp8"]
 font_size = 50
@@ -16,14 +20,34 @@ font_size = 50
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g0xyc"]
 size = Vector2(24, 24)
 
-[node name="Game" type="Node2D"]
-position = Vector2(106, 64)
+[node name="Game" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 106.0
+offset_top = 64.0
+offset_right = 106.0
+offset_bottom = 64.0
+script = ExtResource("1_bmdfc")
 
-[node name="GUI" type="Control" parent="."]
+[node name="Levels" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="Level1" type="Control" parent="Levels"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GUI" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_ig2vi")
 
 [node name="Nets" type="Label" parent="GUI"]
 layout_mode = 0
@@ -43,7 +67,9 @@ offset_bottom = 88.0
 texture = ExtResource("1_bnpbo")
 
 [node name="Net" type="Node2D" parent="."]
+visible = false
 position = Vector2(358, 368)
+script = ExtResource("3_id65u")
 
 [node name="Left" type="RigidBody2D" parent="Net"]
 position = Vector2(75, 64)
@@ -95,6 +121,7 @@ script = ExtResource("3_kqgny")
 script = ExtResource("4_u5kpd")
 
 [node name="Title Screen" parent="." instance=ExtResource("8_prqdg")]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -106,3 +133,20 @@ offset_right = 1045.0
 offset_bottom = 584.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Debug" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -98.0
+offset_top = 128.0
+offset_right = 14.0
+offset_bottom = 194.0
+script = ExtResource("13_23o80")
+
+[node name="IncreaseNets" type="Button" parent="Debug"]
+layout_mode = 2
+text = "Increase Net"
+
+[node name="DecreaseNets" type="Button" parent="Debug"]
+layout_mode = 2
+text = "Decrease Net"

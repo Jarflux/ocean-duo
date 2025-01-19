@@ -1,24 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://cdsry6bictk47"]
+[gd_scene load_steps=4 format=3 uid="uid://cdsry6bictk47"]
 
-[ext_resource type="Texture2D" uid="uid://bh8t555figoww" path="res://images/fish/body/body-1.png" id="1_7crmc"]
-[ext_resource type="Texture2D" uid="uid://dfqtjtn4qeu4f" path="res://images/fish/tail/tail-1.png" id="2_o28uw"]
+[ext_resource type="Texture2D" uid="uid://bh8t555figoww" path="res://images/fish/body/body-1.png" id="1_p44el"]
+[ext_resource type="Texture2D" uid="uid://dfqtjtn4qeu4f" path="res://images/fish/tail/tail-1.png" id="2_6861d"]
 
-[node name="Fish" type="Control"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 108.0
-offset_top = 163.0
-offset_right = 148.0
-offset_bottom = 203.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h8mro"]
 
-[node name="Body" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("1_7crmc")
+[node name="Fish" type="RigidBody2D"]
 
-[node name="Tail" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("2_o28uw")
+[node name="Body" type="Sprite2D" parent="."]
+texture = ExtResource("1_p44el")
+
+[node name="Tail" type="Sprite2D" parent="."]
+texture = ExtResource("2_6861d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_h8mro")
