@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://f8af7hjigh5l"]
+[gd_scene load_steps=10 format=3 uid="uid://f8af7hjigh5l"]
 
 [ext_resource type="Script" path="res://scripts/move.gd" id="2_ed43w"]
 [ext_resource type="AudioStream" uid="uid://c03yghcy4shlm" path="res://sounds/background/underwater-1.mp3" id="2_u3foo"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scripts/audio/Background.gd" id="3_kqgny"]
 [ext_resource type="Texture2D" uid="uid://vr1o4kpmvkjk" path="res://images/green-orb.png" id="4_0101i"]
 [ext_resource type="Script" path="res://scripts/audio/AudioManager.gd" id="4_u5kpd"]
+[ext_resource type="PackedScene" uid="uid://ca42kw07xdxie" path="res://Title.tscn" id="8_prqdg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g0xyc"]
 size = Vector2(24, 24)
@@ -14,7 +15,8 @@ size = Vector2(24, 24)
 [node name="Game" type="Node2D"]
 position = Vector2(106, 64)
 
-[node name="Net" type="Node" parent="."]
+[node name="Net" type="Node2D" parent="."]
+position = Vector2(358, 368)
 
 [node name="Left" type="RigidBody2D" parent="Net"]
 position = Vector2(75, 64)
@@ -64,3 +66,16 @@ script = ExtResource("3_kqgny")
 
 [node name="AudioManager" type="Node" parent="Audio"]
 script = ExtResource("4_u5kpd")
+
+[node name="Title Screen" parent="." instance=ExtResource("8_prqdg")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -106.0
+offset_top = -64.0
+offset_right = 1045.0
+offset_bottom = 584.0
+grow_horizontal = 2
+grow_vertical = 2

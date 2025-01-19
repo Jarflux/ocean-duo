@@ -1,0 +1,144 @@
+[gd_scene load_steps=12 format=3 uid="uid://ca42kw07xdxie"]
+
+[ext_resource type="Texture2D" uid="uid://dj1lxp2mfrwm3" path="res://images/title-screen.png" id="1_1kmk8"]
+[ext_resource type="Texture2D" uid="uid://vr1o4kpmvkjk" path="res://images/green-orb.png" id="2_fymwr"]
+[ext_resource type="Texture2D" uid="uid://c5n5jmao6nxdt" path="res://images/net-around-orb.png" id="3_quxfe"]
+[ext_resource type="Texture2D" uid="uid://co1y12axqmd6s" path="res://images/red-orb.png" id="4_fqeus"]
+[ext_resource type="Texture2D" uid="uid://d01rd4b4in37y" path="res://images/yellow-orb.png" id="5_1f3gx"]
+[ext_resource type="Texture2D" uid="uid://bh8t555figoww" path="res://images/fish/body/body-1.png" id="6_qxvqp"]
+[ext_resource type="Texture2D" uid="uid://dfqtjtn4qeu4f" path="res://images/fish/tail/tail-1.png" id="7_tym1w"]
+[ext_resource type="Texture2D" uid="uid://blasm0m00dw11" path="res://images/fish/body/body-2.png" id="8_u4odn"]
+[ext_resource type="Texture2D" uid="uid://gy2bn4uo85kk" path="res://images/fish/tail/tail-2.png" id="9_l765n"]
+[ext_resource type="Texture2D" uid="uid://661teuqhgsix" path="res://images/fish/body/body-3.png" id="10_1q0cf"]
+[ext_resource type="Texture2D" uid="uid://bg3q3vprhl7jr" path="res://images/fish/tail/tail-3.png" id="11_gnu6k"]
+
+[node name="Title Screen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1151.0
+offset_bottom = 648.0
+
+[node name="Title" type="TextureRect" parent="."]
+layout_mode = 2
+offset_left = 292.0
+offset_top = 134.0
+offset_right = 842.0
+offset_bottom = 294.0
+texture = ExtResource("1_1kmk8")
+
+[node name="Orb" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 302.0
+offset_top = 254.0
+offset_right = 342.0
+offset_bottom = 294.0
+texture = ExtResource("2_fymwr")
+
+[node name="Net" type="TextureRect" parent="Orb"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_quxfe")
+
+[node name="Orb2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 588.0
+offset_top = 152.0
+offset_right = 628.0
+offset_bottom = 192.0
+texture = ExtResource("4_fqeus")
+
+[node name="Net" type="TextureRect" parent="Orb2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_quxfe")
+
+[node name="Orb3" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 806.0
+offset_top = 258.0
+offset_right = 846.0
+offset_bottom = 298.0
+texture = ExtResource("5_1f3gx")
+
+[node name="Net" type="TextureRect" parent="Orb3"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_quxfe")
+
+[node name="MenuContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = 76.0
+offset_right = 150.0
+offset_bottom = 265.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="MenuContainer"]
+layout_mode = 2
+text = "START GAME"
+
+[node name="Fish" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 108.0
+offset_top = 163.0
+offset_right = 148.0
+offset_bottom = 203.0
+
+[node name="Body" type="TextureRect" parent="Fish"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("6_qxvqp")
+
+[node name="Tail" type="TextureRect" parent="Fish"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("7_tym1w")
+
+[node name="Fish2" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 864.0
+offset_top = 273.0
+offset_right = 904.0
+offset_bottom = 313.0
+
+[node name="Body" type="TextureRect" parent="Fish2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("8_u4odn")
+
+[node name="Tail" type="TextureRect" parent="Fish2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("9_l765n")
+
+[node name="Fish3" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 832.0
+offset_top = 43.0
+offset_right = 872.0
+offset_bottom = 83.0
+
+[node name="Body" type="TextureRect" parent="Fish3"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("10_1q0cf")
+
+[node name="Tail" type="TextureRect" parent="Fish3"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("11_gnu6k")
