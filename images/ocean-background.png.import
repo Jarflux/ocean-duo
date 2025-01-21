@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfqtjtn4qeu4f"
-path="res://.godot/imported/tail-1.png-d4d89a53cf78e0ff8f10084ac49f258a.ctex"
+uid="uid://bfoc2ci22vfte"
+path="res://.godot/imported/ocean-background.png-30ab3e40fbb6ab83caa468e6b52026c4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/fish/tail/tail-1.png"
-dest_files=["res://.godot/imported/tail-1.png-d4d89a53cf78e0ff8f10084ac49f258a.ctex"]
+source_file="res://images/ocean-background.png"
+dest_files=["res://.godot/imported/ocean-background.png-30ab3e40fbb6ab83caa468e6b52026c4.ctex"]
 
 [params]
 

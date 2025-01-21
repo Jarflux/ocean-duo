@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://f8af7hjigh5l"]
+[gd_scene load_steps=22 format=3 uid="uid://f8af7hjigh5l"]
 
 [ext_resource type="Script" path="res://scripts/Game.gd" id="1_bmdfc"]
 [ext_resource type="Texture2D" uid="uid://di3q7duwh5x0t" path="res://images/nets-icon-yellow.png" id="1_bnpbo"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://scripts/Gui.gd" id="2_ig2vi"]
 [ext_resource type="AudioStream" uid="uid://c03yghcy4shlm" path="res://sounds/background/underwater-1.mp3" id="2_u3foo"]
 [ext_resource type="Texture2D" uid="uid://d01rd4b4in37y" path="res://images/yellow-orb.png" id="2_vvqx0"]
+[ext_resource type="Texture2D" uid="uid://bfoc2ci22vfte" path="res://images/ocean-background.png" id="2_y7bcb"]
 [ext_resource type="Texture2D" uid="uid://c5n5jmao6nxdt" path="res://images/net-around-orb.png" id="3_eun46"]
 [ext_resource type="Script" path="res://scripts/Net.gd" id="3_id65u"]
 [ext_resource type="Script" path="res://scripts/audio/Background.gd" id="3_kqgny"]
@@ -13,12 +14,33 @@
 [ext_resource type="Script" path="res://scripts/audio/AudioManager.gd" id="4_u5kpd"]
 [ext_resource type="PackedScene" uid="uid://c0flwujmi120h" path="res://scenes/Title.tscn" id="8_prqdg"]
 [ext_resource type="Script" path="res://scripts/Debug.gd" id="13_23o80"]
+[ext_resource type="Shader" path="res://shaders/Water.gdshader" id="14_54ctr"]
+[ext_resource type="Texture2D" uid="uid://bjh7ppgkjpcdh" path="res://icon.svg" id="15_pbkxw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g0xyc"]
+size = Vector2(24, 24)
 
 [sub_resource type="LabelSettings" id="LabelSettings_qehp8"]
 font_size = 50
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g0xyc"]
-size = Vector2(24, 24)
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_bh4yi"]
+noise_type = 2
+frequency = 0.0104
+fractal_type = 2
+fractal_gain = 0.98
+fractal_weighted_strength = 0.8
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_6fuu6"]
+seamless = true
+seamless_blend_skirt = 0.654
+noise = SubResource("FastNoiseLite_bh4yi")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ai1lg"]
+shader = ExtResource("14_54ctr")
+shader_parameter/color = Color(1.05888e-06, 0.558966, 0.644722, 1)
+shader_parameter/speed = Vector2(-0.053, 0)
+shader_parameter/wave_strength = 2.0
+shader_parameter/fast_noise = SubResource("NoiseTexture2D_6fuu6")
 
 [node name="Game" type="Control"]
 layout_mode = 3
@@ -28,6 +50,10 @@ offset_top = 64.0
 offset_right = 106.0
 offset_bottom = 64.0
 script = ExtResource("1_bmdfc")
+
+[node name="Ocean-background" type="Sprite2D" parent="."]
+position = Vector2(454, 260)
+texture = ExtResource("2_y7bcb")
 
 [node name="Levels" type="Control" parent="."]
 visible = false
@@ -40,31 +66,6 @@ offset_bottom = 40.0
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-
-[node name="GUI" type="Control" parent="."]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("2_ig2vi")
-
-[node name="Nets" type="Label" parent="GUI"]
-layout_mode = 0
-offset_left = -34.0
-offset_top = -32.0
-offset_right = 6.0
-offset_bottom = 37.0
-text = "5"
-label_settings = SubResource("LabelSettings_qehp8")
-
-[node name="NetsIcon" type="TextureRect" parent="GUI/Nets"]
-layout_mode = 0
-offset_left = -64.0
-offset_top = -40.0
-offset_right = 64.0
-offset_bottom = 88.0
-texture = ExtResource("1_bnpbo")
 
 [node name="Net" type="Node2D" parent="."]
 visible = false
@@ -115,6 +116,9 @@ shape = SubResource("RectangleShape2D_g0xyc")
 
 [node name="Background" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("2_u3foo")
+volume_db = -19.309
+pitch_scale = 0.77
+mix_target = 2
 script = ExtResource("3_kqgny")
 
 [node name="AudioManager" type="Node" parent="Audio"]
@@ -133,6 +137,37 @@ offset_right = 1045.0
 offset_bottom = 584.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="GUI" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_ig2vi")
+
+[node name="Nets" type="Label" parent="GUI"]
+layout_mode = 0
+offset_left = -34.0
+offset_top = -32.0
+offset_right = 6.0
+offset_bottom = 37.0
+text = "5"
+label_settings = SubResource("LabelSettings_qehp8")
+
+[node name="NetsIcon" type="TextureRect" parent="GUI/Nets"]
+layout_mode = 0
+offset_left = -64.0
+offset_top = -40.0
+offset_right = 64.0
+offset_bottom = 88.0
+texture = ExtResource("1_bnpbo")
+
+[node name="Ocean" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_ai1lg")
+position = Vector2(436, 285)
+scale = Vector2(10.8125, 6.0625)
+texture = ExtResource("15_pbkxw")
 
 [node name="Debug" type="VBoxContainer" parent="."]
 visible = false

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gy2bn4uo85kk"
-path="res://.godot/imported/tail-2.png-6b9df7238d438124c024a1c0dde24173.ctex"
+uid="uid://cealufkiapn4g"
+path="res://.godot/imported/clownfish.png-dad6540722b68d4edc2ca5897751ac88.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/fish/tail/tail-2.png"
-dest_files=["res://.godot/imported/tail-2.png-6b9df7238d438124c024a1c0dde24173.ctex"]
+source_file="res://images/fish/clownfish.png"
+dest_files=["res://.godot/imported/clownfish.png-dad6540722b68d4edc2ca5897751ac88.ctex"]
 
 [params]
 
