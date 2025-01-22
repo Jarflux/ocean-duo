@@ -1,9 +1,14 @@
 extends Node
 
 var nets
+var plastic
 
 func _ready():
 	nets = $Nets
+	plastic = $Plastic
 	
-func _on_Net_Amount_Changed(old_value, new_value):
+func onNetAmountChanged(_old_value, new_value):
 	nets.text = str(new_value)
+
+func onPlasticAmountChanged(_old_value, new_value):
+	plastic.text = str(new_value)

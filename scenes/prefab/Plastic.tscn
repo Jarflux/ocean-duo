@@ -3,6 +3,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b6fvi"]
 
 [node name="Plastic" type="RigidBody2D"]
+gravity_scale = 0.062
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
