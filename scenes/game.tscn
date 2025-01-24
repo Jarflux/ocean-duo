@@ -1,11 +1,10 @@
-[gd_scene load_steps=27 format=3 uid="uid://f8af7hjigh5l"]
+[gd_scene load_steps=33 format=3 uid="uid://f8af7hjigh5l"]
 
 [ext_resource type="Script" path="res://scripts/Game.gd" id="1_bmdfc"]
 [ext_resource type="Texture2D" uid="uid://di3q7duwh5x0t" path="res://images/nets-icon-yellow.png" id="1_bnpbo"]
 [ext_resource type="Script" path="res://scripts/Move.gd" id="2_ed43w"]
 [ext_resource type="Script" path="res://scripts/Gui.gd" id="2_ig2vi"]
 [ext_resource type="AudioStream" uid="uid://c03yghcy4shlm" path="res://sounds/background/underwater-1.mp3" id="2_u3foo"]
-[ext_resource type="Texture2D" uid="uid://d01rd4b4in37y" path="res://images/yellow-orb.png" id="2_vvqx0"]
 [ext_resource type="Texture2D" uid="uid://bfoc2ci22vfte" path="res://images/ocean-background.png" id="2_y7bcb"]
 [ext_resource type="Texture2D" uid="uid://c5n5jmao6nxdt" path="res://images/net-around-orb.png" id="3_eun46"]
 [ext_resource type="Script" path="res://scripts/Net.gd" id="3_id65u"]
@@ -13,13 +12,20 @@
 [ext_resource type="Script" path="res://scripts/audio/Background.gd" id="3_kqgny"]
 [ext_resource type="Texture2D" uid="uid://vr1o4kpmvkjk" path="res://images/green-orb.png" id="4_0101i"]
 [ext_resource type="Script" path="res://scripts/audio/AudioManager.gd" id="4_u5kpd"]
+[ext_resource type="Texture2D" uid="uid://hecgpepgy42p" path="res://images/wasd-keyboard.png" id="6_k0fx6"]
+[ext_resource type="Texture2D" uid="uid://co1y12axqmd6s" path="res://images/red-orb.png" id="7_e3wqv"]
 [ext_resource type="PackedScene" uid="uid://c0flwujmi120h" path="res://scenes/Title.tscn" id="8_prqdg"]
+[ext_resource type="Texture2D" uid="uid://d0hbwre880qq6" path="res://images/arrows-keyboard.png" id="9_e8oc7"]
 [ext_resource type="Script" path="res://scripts/Debug.gd" id="13_23o80"]
 [ext_resource type="Shader" path="res://shaders/Water.gdshader" id="14_54ctr"]
 [ext_resource type="Texture2D" uid="uid://b2ckmtfp5emwf" path="res://images/plastic-bag.png" id="15_lpu5g"]
 [ext_resource type="Texture2D" uid="uid://bjh7ppgkjpcdh" path="res://icon.svg" id="15_pbkxw"]
 [ext_resource type="Texture2D" uid="uid://djv8j0exaxf03" path="res://images/plastic-beer-rings.png" id="16_p52fc"]
 [ext_resource type="Texture2D" uid="uid://daq3l3oow2y32" path="res://images/bottle.png" id="17_6i1y8"]
+[ext_resource type="Texture2D" uid="uid://bhs2dxwp1gy2b" path="res://images/speaker.png" id="23_64gcs"]
+[ext_resource type="Script" path="res://scripts/audio/AudioToggle.gd" id="24_21fsb"]
+[ext_resource type="Texture2D" uid="uid://bcyoeihlg0yjl" path="res://images/cross.png" id="24_cu66c"]
+[ext_resource type="Texture2D" uid="uid://b7usctr45wj8k" path="res://images/music.png" id="25_b0l6b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g0xyc"]
 size = Vector2(24, 24)
@@ -94,6 +100,11 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="Tutorial" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="Net" type="Node2D" parent="."]
 visible = false
 position = Vector2(358, 368)
@@ -104,7 +115,7 @@ width = 5.0
 default_color = Color(0.271443, 0.0913281, 0.00768436, 1)
 
 [node name="Left" type="RigidBody2D" parent="Net"]
-position = Vector2(75, 64)
+position = Vector2(5, 47)
 gravity_scale = 0.0
 script = ExtResource("2_ed43w")
 button_move_left = "move_left_red"
@@ -112,8 +123,15 @@ button_move_right = "move_right_red"
 button_move_up = "move_up_red"
 button_move_down = "move_down_red"
 
+[node name="Tutorial" type="TextureRect" parent="Net/Left"]
+offset_left = -185.0
+offset_top = -187.0
+offset_right = 71.0
+offset_bottom = -17.0
+texture = ExtResource("6_k0fx6")
+
 [node name="Orb" type="Sprite2D" parent="Net/Left"]
-texture = ExtResource("2_vvqx0")
+texture = ExtResource("7_e3wqv")
 
 [node name="NetAroundOrb" type="Sprite2D" parent="Net/Left"]
 texture = ExtResource("3_eun46")
@@ -123,7 +141,7 @@ visible = false
 shape = SubResource("RectangleShape2D_g0xyc")
 
 [node name="Right" type="RigidBody2D" parent="Net"]
-position = Vector2(151, 63)
+position = Vector2(219, 46)
 gravity_scale = 0.0
 script = ExtResource("2_ed43w")
 button_move_left = "move_left_green"
@@ -131,6 +149,13 @@ button_move_right = "move_right_green"
 button_move_up = "move_up_green"
 button_move_down = "move_down_green"
 metadata/button_move_left = "move_left_red"
+
+[node name="Tutorial" type="TextureRect" parent="Net/Right"]
+offset_left = -91.0
+offset_top = -182.0
+offset_right = 165.0
+offset_bottom = -12.0
+texture = ExtResource("9_e8oc7")
 
 [node name="Orb" type="Sprite2D" parent="Net/Right"]
 texture = ExtResource("4_0101i")
@@ -142,18 +167,6 @@ texture = ExtResource("3_eun46")
 visible = false
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_g0xyc")
-
-[node name="Audio" type="Node" parent="."]
-
-[node name="Background" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("2_u3foo")
-volume_db = -19.309
-pitch_scale = 0.77
-mix_target = 2
-script = ExtResource("3_kqgny")
-
-[node name="AudioManager" type="Node" parent="Audio"]
-script = ExtResource("4_u5kpd")
 
 [node name="Title Screen" parent="." instance=ExtResource("8_prqdg")]
 layout_mode = 1
@@ -235,7 +248,7 @@ texture = ExtResource("17_6i1y8")
 
 [node name="Ocean" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_ai1lg")
-position = Vector2(451, 265)
+position = Vector2(469, 265)
 scale = Vector2(10.8125, 6.0625)
 texture = ExtResource("15_pbkxw")
 
@@ -263,3 +276,49 @@ text = "Increase Plastic"
 [node name="DecreasePlastic" type="Button" parent="Debug"]
 layout_mode = 2
 text = "Decrease Plastic"
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="Background" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("2_u3foo")
+volume_db = -19.309
+pitch_scale = 0.77
+mix_target = 2
+bus = &"Music"
+script = ExtResource("3_kqgny")
+
+[node name="AudioManager" type="Node" parent="Audio"]
+script = ExtResource("4_u5kpd")
+
+[node name="Settings" type="Control" parent="."]
+anchors_preset = 0
+
+[node name="Sound" type="TextureButton" parent="Settings"]
+layout_mode = 0
+offset_left = 1004.0
+offset_top = 543.0
+offset_right = 1036.0
+offset_bottom = 575.0
+texture_normal = ExtResource("23_64gcs")
+script = ExtResource("24_21fsb")
+audio_bus_name = "SoundEffects"
+
+[node name="Cross" type="TextureRect" parent="Settings/Sound"]
+visible = false
+layout_mode = 0
+texture = ExtResource("24_cu66c")
+
+[node name="Music" type="TextureButton" parent="Settings"]
+layout_mode = 0
+offset_left = 972.0
+offset_top = 542.0
+offset_right = 1004.0
+offset_bottom = 574.0
+texture_normal = ExtResource("25_b0l6b")
+script = ExtResource("24_21fsb")
+audio_bus_name = "Music"
+
+[node name="Cross" type="TextureRect" parent="Settings/Music"]
+visible = false
+layout_mode = 0
+texture = ExtResource("24_cu66c")

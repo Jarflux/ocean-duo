@@ -10,6 +10,5 @@ func _button_pressed():
 	var game = get_node("/root/Game")
 	game.start()
 	
-	#TODO Start button sound
-	#get_node("/root/Audio/AudioManager").play("res://sounds/paper-crumple-short.mp3")
+	get_node("/root/Game/Audio/AudioManager").play("res://sounds/splash.mp3")
 	

@@ -35,15 +35,19 @@ func toggleDebug():
 		debug_mode.visible = true
 	
 func _btnDecreaseNetAmount():
+	get_node("/root/Game/Audio/AudioManager").play("res://sounds/splash.mp3")
 	game.decreaseNetAmount();
 
 func _btnIncreaseNetAmount():
+	get_node("/root/Game/Audio/AudioManager").play("res://sounds/splash.mp3")
 	game.increaseNetAmount();	
 
 func _btnDecreasePlasticAmount():
+	get_node("/root/Game/Audio/AudioManager").play("res://sounds/splash.mp3")
 	game.decreasePlasticAmount();
 
 func _btnIncreasePlasticAmount():
+	get_node("/root/Game/Audio/AudioManager").play("res://sounds/splash.mp3")
 	game.increasePlasticAmount();	
 	
 	
