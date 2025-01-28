@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends Node2D
 
 @export var button_move_left = ""
 @export var button_move_right = ""

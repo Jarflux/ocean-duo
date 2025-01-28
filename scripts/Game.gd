@@ -8,7 +8,7 @@ signal plastic_amount_increased
 signal plastic_amount_decreased
 
 var player_net
-var level1
+var level
 var gui
 
 var amount_of_nets
@@ -16,7 +16,7 @@ var amount_of_plastic_caught
 
 func _ready():
 	gui = $GUI
-	level1 = $"Levels/Level1"
+	level = $"Level"
 	player_net = $Net
 	self.net_amount_increased.connect(gui.onNetAmountChanged);
 	self.net_amount_decreased.connect(gui.onNetAmountChanged);
@@ -27,9 +27,14 @@ func _ready():
 	
 func start():
 	player_net.visible = true;
-	level1.visible = true;
+	level.visible = true;
 	gui.visible = true;
-	#TODO Add start game loop	
+
+func caughtFish():
+	decreaseNetAmount();
+
+func caughtPlastic():
+	increasePlasticAmount();
 
 func increaseNetAmount():
 	var old_amount = amount_of_nets;

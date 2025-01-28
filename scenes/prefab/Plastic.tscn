@@ -1,11 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://5ht5relmd7r5"]
+[gd_scene load_steps=3 format=3 uid="uid://5ht5relmd7r5"]
+
+[ext_resource type="Texture2D" uid="uid://djv8j0exaxf03" path="res://images/plastic-beer-rings.png" id="1_i47hu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b6fvi"]
 
 [node name="Plastic" type="RigidBody2D"]
-gravity_scale = 0.062
+collision_mask = 4
+mass = 0.001
+gravity_scale = 0.0
+can_sleep = false
+lock_rotation = true
+linear_damp_mode = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -0.498054
+texture = ExtResource("1_i47hu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_b6fvi")

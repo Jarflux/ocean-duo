@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://c0flwujmi120h"]
+[gd_scene load_steps=22 format=3 uid="uid://c0flwujmi120h"]
 
 [ext_resource type="Texture2D" uid="uid://bp8i5sb4di0lw" path="res://images/title-screen-white.png" id="1_7i3c6"]
 [ext_resource type="Texture2D" uid="uid://vr1o4kpmvkjk" path="res://images/green-orb.png" id="2_fymwr"]
@@ -6,134 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://co1y12axqmd6s" path="res://images/red-orb.png" id="4_fqeus"]
 [ext_resource type="Script" path="res://scripts/StartGame.gd" id="6_c0uw3"]
 [ext_resource type="PackedScene" uid="uid://cdsry6bictk47" path="res://scenes/prefab/Fish.tscn" id="6_rtn37"]
-[ext_resource type="Texture2D" uid="uid://c4m5s7rt27mn3" path="res://images/fish/excotic-fish.png" id="8_h5oto"]
-[ext_resource type="Texture2D" uid="uid://cealufkiapn4g" path="res://images/fish/clownfish.png" id="9_khryi"]
 [ext_resource type="PackedScene" uid="uid://5ht5relmd7r5" path="res://scenes/prefab/Plastic.tscn" id="12_ejdql"]
 [ext_resource type="Texture2D" uid="uid://bekcbhvb2h2gj" path="res://images/fish/crab.png" id="13_3rw7y"]
 [ext_resource type="Texture2D" uid="uid://daq3l3oow2y32" path="res://images/bottle.png" id="13_r2yva"]
 [ext_resource type="Texture2D" uid="uid://b2ckmtfp5emwf" path="res://images/plastic-bag.png" id="14_i6s2k"]
-[ext_resource type="Texture2D" uid="uid://djv8j0exaxf03" path="res://images/plastic-beer-rings.png" id="15_drdy3"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xr3bm"]
-atlas = ExtResource("8_h5oto")
-region = Rect2(0, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1n2y5"]
-atlas = ExtResource("8_h5oto")
-region = Rect2(128, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tm1ii"]
-atlas = ExtResource("8_h5oto")
-region = Rect2(256, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5ae7u"]
-atlas = ExtResource("8_h5oto")
-region = Rect2(384, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xlxhb"]
-atlas = ExtResource("8_h5oto")
-region = Rect2(512, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dm2y6"]
-atlas = ExtResource("8_h5oto")
-region = Rect2(640, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kdngl"]
-atlas = ExtResource("8_h5oto")
-region = Rect2(768, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fb4qg"]
-atlas = ExtResource("8_h5oto")
-region = Rect2(896, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_u8skk"]
-atlas = ExtResource("8_h5oto")
-region = Rect2(1024, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fqie8"]
-atlas = ExtResource("8_h5oto")
-region = Rect2(1152, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_svtcf"]
-atlas = ExtResource("8_h5oto")
-region = Rect2(1280, 0, 128, 128)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_wkoth"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xr3bm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1n2y5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tm1ii")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5ae7u")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xlxhb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dm2y6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kdngl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fb4qg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_u8skk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fqie8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_svtcf")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_isbiq"]
-atlas = ExtResource("9_khryi")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_03ht7"]
-atlas = ExtResource("9_khryi")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pfyrb"]
-atlas = ExtResource("9_khryi")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_y0el5"]
-atlas = ExtResource("9_khryi")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_cu3iw"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_isbiq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_03ht7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pfyrb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_y0el5")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8jao3"]
 atlas = ExtResource("13_3rw7y")
@@ -274,22 +150,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("3_quxfe")
 
-[node name="Fish1" parent="." instance=ExtResource("6_rtn37")]
-position = Vector2(152, 320)
-linear_velocity = Vector2(60, 0)
-
-[node name="AnimatedSprite2D" parent="Fish1" index="1"]
-sprite_frames = SubResource("SpriteFrames_wkoth")
-
-[node name="Fish2" parent="." instance=ExtResource("6_rtn37")]
-position = Vector2(896, 464)
-
-[node name="Fish3" parent="." instance=ExtResource("6_rtn37")]
-position = Vector2(896, 208)
-
-[node name="AnimatedSprite2D" parent="Fish3" index="1"]
-sprite_frames = SubResource("SpriteFrames_cu3iw")
-
 [node name="Plastic" parent="." instance=ExtResource("12_ejdql")]
 position = Vector2(264, 464)
 rotation = -0.338829
@@ -313,11 +173,7 @@ position = Vector2(664, 144)
 rotation = -0.461178
 mass = 0.003
 sleeping = true
-can_sleep = false
 freeze = true
-
-[node name="Sprite2D" parent="Plastic3" index="0"]
-texture = ExtResource("15_drdy3")
 
 [node name="Crab" parent="." instance=ExtResource("6_rtn37")]
 position = Vector2(1264, 640)
@@ -327,9 +183,6 @@ linear_velocity = Vector2(-30, 0)
 position = Vector2(-320, -56)
 sprite_frames = SubResource("SpriteFrames_24bxw")
 
-[editable path="Fish1"]
-[editable path="Fish2"]
-[editable path="Fish3"]
 [editable path="Plastic"]
 [editable path="Plastic2"]
 [editable path="Plastic3"]
