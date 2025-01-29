@@ -30,4 +30,7 @@ func onCatch(other):
 	if other.get_meta("class") == "Plastic":	
 		print("Caught a Plastic")
 		game.caughtPlastic()
+	if other.get_meta("class") == "Net":	
+		print("Caught a Net")
+		game.caughtNet()	
 	other.queue_free()

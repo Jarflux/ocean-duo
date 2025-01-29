@@ -13,11 +13,16 @@ var fish2 = load("res://scenes/prefab/FishClown.tscn")
 var fish3 = load("res://scenes/prefab/FishShark.tscn")
 var crab = load("res://scenes/prefab/Crab.tscn")
 var knife = load("res://scenes/prefab/Knife.tscn")
+var net = load("res://scenes/prefab/Net.tscn")
 var plastic1 = load("res://scenes/prefab/PlasticBottle.tscn")
 var plastic2 = load("res://scenes/prefab/PlasticBeer.tscn")
 var plastic3 = load("res://scenes/prefab/PlasticBag.tscn")
+var spawnedObjects 
 
 var rng = RandomNumberGenerator.new()
+
+func _ready():
+	spawnedObjects = get_node("/root/Game/Level/SpawnedObjects")
 	
 func _process(float) -> void:
 	if self.get_parent().get_parent().visible:
@@ -34,7 +39,7 @@ func _process(float) -> void:
 				spawned = _createFish()
 			if fish_or_plastic == 2:
 				spawned = _createCrab()
-			add_child(spawned)
+			spawnedObjects.add_child(spawned)
 			spawned.position = Vector2(x,y)
 			if flipped:
 				spawned.set_linear_velocity(Vector2(-spawned.linear_velocity.x, -spawned.linear_velocity.y))
@@ -42,19 +47,22 @@ func _process(float) -> void:
 
 func _createPlastic():
 	var spawned
-	var selector = rng.randi_range(0,3)
-	if selector == 0:
+	var selector = rng.randf_range(0,1)
+	if  selector > 0 && selector <= 0.25:
 		spawned = plastic1.instantiate()
 		spawned.set_meta("class","Plastic")
-	if selector == 1:
+	if  selector > 0.25 && selector <= 0.50:
 		spawned = plastic2.instantiate()
 		spawned.set_meta("class","Plastic")
-	if selector == 2:
+	if  selector > 0.50 && selector <= 0.75:
 		spawned = plastic3.instantiate()
 		spawned.set_meta("class","Plastic")
-	if selector == 3:
+	if selector > 0.75 && selector <= 0.99:
 		spawned = knife.instantiate()
 		spawned.set_meta("class","Fish")
+	if selector > 0.99:
+		spawned = net.instantiate()
+		spawned.set_meta("class","Net")	
 	return spawned
 	
 func _createFish():	

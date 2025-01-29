@@ -1,0 +1,115 @@
+[gd_scene load_steps=10 format=3 uid="uid://6opjwglqoleh"]
+
+[ext_resource type="Texture2D" uid="uid://bp8i5sb4di0lw" path="res://images/title-screen-white.png" id="1_b4wya"]
+[ext_resource type="Script" path="res://scripts/StartGame.gd" id="2_govdb"]
+[ext_resource type="Texture2D" uid="uid://vr1o4kpmvkjk" path="res://images/green-orb.png" id="3_cjhqp"]
+[ext_resource type="Texture2D" uid="uid://c5n5jmao6nxdt" path="res://images/net-around-orb.png" id="4_1esce"]
+[ext_resource type="Texture2D" uid="uid://co1y12axqmd6s" path="res://images/red-orb.png" id="5_3e08t"]
+[ext_resource type="PackedScene" uid="uid://5ht5relmd7r5" path="res://scenes/prefab/PlasticBeer.tscn" id="6_pdiqa"]
+[ext_resource type="Texture2D" uid="uid://daq3l3oow2y32" path="res://images/bottle.png" id="7_6n7kv"]
+[ext_resource type="Texture2D" uid="uid://b2ckmtfp5emwf" path="res://images/plastic-bag.png" id="8_g218n"]
+[ext_resource type="Script" path="res://scripts/HiScores.gd" id="9_n8ih5"]
+
+[node name="Score Screen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1151.0
+offset_bottom = 648.0
+script = ExtResource("9_n8ih5")
+
+[node name="Title" type="TextureRect" parent="."]
+layout_mode = 2
+offset_left = 304.0
+offset_top = 8.0
+offset_right = 854.0
+offset_bottom = 168.0
+texture = ExtResource("1_b4wya")
+
+[node name="MenuContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -159.5
+offset_top = 220.0
+offset_right = 140.5
+offset_bottom = 409.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Start" type="Button" parent="MenuContainer"]
+layout_mode = 2
+text = "TRY AGAIN"
+script = ExtResource("2_govdb")
+
+[node name="Orb" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 688.0
+offset_top = 544.0
+offset_right = 728.0
+offset_bottom = 584.0
+texture = ExtResource("3_cjhqp")
+
+[node name="Net" type="TextureRect" parent="Orb"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_1esce")
+
+[node name="Orb2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 528.0
+offset_right = 440.0
+offset_bottom = 568.0
+texture = ExtResource("5_3e08t")
+
+[node name="Net" type="TextureRect" parent="Orb2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_1esce")
+
+[node name="Plastic" parent="." instance=ExtResource("6_pdiqa")]
+position = Vector2(120, 480)
+rotation = -0.338829
+mass = 0.003
+freeze = true
+
+[node name="Sprite2D" parent="Plastic" index="0"]
+texture = ExtResource("7_6n7kv")
+
+[node name="Plastic2" parent="." instance=ExtResource("6_pdiqa")]
+position = Vector2(112, 80)
+rotation = 0.717192
+mass = 0.003
+freeze = true
+
+[node name="Sprite2D" parent="Plastic2" index="0"]
+texture = ExtResource("8_g218n")
+
+[node name="Plastic3" parent="." instance=ExtResource("6_pdiqa")]
+position = Vector2(1024, 248)
+rotation = -0.461178
+mass = 0.003
+sleeping = true
+freeze = true
+
+[node name="Scores" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 0.5
+offset_top = 192.0
+offset_right = 0.5
+offset_bottom = 192.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[editable path="Plastic"]
+[editable path="Plastic2"]
+[editable path="Plastic3"]

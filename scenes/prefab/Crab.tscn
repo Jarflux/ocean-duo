@@ -91,6 +91,7 @@ can_sleep = false
 lock_rotation = true
 linear_velocity = Vector2(50, 0)
 linear_damp_mode = 1
+metadata/class = "fish"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_jll8n")
