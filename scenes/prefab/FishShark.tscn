@@ -1,0 +1,80 @@
+[gd_scene load_steps=11 format=3 uid="uid://b2dycm3m2nor3"]
+
+[ext_resource type="Texture2D" uid="uid://dxn0iximoxav7" path="res://images/fish/shark.png" id="1_cqf85"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svjes"]
+atlas = ExtResource("1_cqf85")
+region = Rect2(0, 0, 300, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_waj8y"]
+atlas = ExtResource("1_cqf85")
+region = Rect2(300, 0, 300, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5q8k"]
+atlas = ExtResource("1_cqf85")
+region = Rect2(600, 0, 300, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1f03"]
+atlas = ExtResource("1_cqf85")
+region = Rect2(900, 0, 300, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nky8x"]
+atlas = ExtResource("1_cqf85")
+region = Rect2(1200, 0, 300, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sc0nw"]
+atlas = ExtResource("1_cqf85")
+region = Rect2(1500, 0, 300, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8g3a3"]
+atlas = ExtResource("1_cqf85")
+region = Rect2(1800, 0, 300, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jll8n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svjes")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_waj8y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5q8k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1f03")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nky8x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sc0nw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8g3a3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h8mro"]
+size = Vector2(199, 43.125)
+
+[node name="Fish" type="RigidBody2D"]
+collision_mask = 2
+mass = 0.001
+gravity_scale = 0.0
+can_sleep = false
+lock_rotation = true
+linear_velocity = Vector2(150, 0)
+linear_damp_mode = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jll8n")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-11, -4)
+shape = SubResource("RectangleShape2D_h8mro")

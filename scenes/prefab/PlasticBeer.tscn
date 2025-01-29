@@ -11,6 +11,7 @@ mass = 0.001
 gravity_scale = 0.0
 can_sleep = false
 lock_rotation = true
+linear_velocity = Vector2(0, 50)
 linear_damp_mode = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

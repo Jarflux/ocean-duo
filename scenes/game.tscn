@@ -135,6 +135,27 @@ shape = SubResource("RectangleShape2D_i7ous")
 [node name="Spawners" type="Node2D" parent="Level"]
 position = Vector2(-129, -68)
 
+[node name="CrabSpawnerLeft" type="Node2D" parent="Level/Spawners"]
+position = Vector2(18, -2)
+script = ExtResource("4_l5rq7")
+spawn_area_min_X = -100.0
+spawn_area_max_X = -100.0
+spawn_area_min_Y = 590.0
+spawn_area_max_Y = 590.0
+fish_or_plastic = 2
+spawn_threshold = 1.0
+
+[node name="CrabSpawnerRight" type="Node2D" parent="Level/Spawners"]
+position = Vector2(1, 0)
+script = ExtResource("4_l5rq7")
+spawn_area_min_X = 1252.0
+spawn_area_max_X = 1252.0
+spawn_area_min_Y = 590.0
+spawn_area_max_Y = 590.0
+fish_or_plastic = 2
+flipped = true
+spawn_threshold = 1.0
+
 [node name="FishSpawnerLeft" type="Node2D" parent="Level/Spawners"]
 position = Vector2(18, -2)
 script = ExtResource("4_l5rq7")
@@ -143,8 +164,7 @@ spawn_area_max_X = -100.0
 spawn_area_min_Y = 50.0
 spawn_area_max_Y = 600.0
 fish_or_plastic = 1
-velocity = Vector2(85, 0)
-spawn_threshold = 0.99
+spawn_threshold = 0.995
 
 [node name="FishSpawnerRight" type="Node2D" parent="Level/Spawners"]
 position = Vector2(1, 0)
@@ -155,8 +175,7 @@ spawn_area_min_Y = 50.0
 spawn_area_max_Y = 600.0
 fish_or_plastic = 1
 flipped = true
-velocity = Vector2(-85, 0)
-spawn_threshold = 0.99
+spawn_threshold = 0.995
 
 [node name="PlasticSpawnerTop" type="Node2D" parent="Level/Spawners"]
 script = ExtResource("4_l5rq7")
@@ -164,8 +183,7 @@ spawn_area_min_X = 50.0
 spawn_area_max_X = 1125.0
 spawn_area_min_Y = -100.0
 spawn_area_max_Y = -100.0
-velocity = Vector2(0, 50)
-spawn_threshold = 0.98
+spawn_threshold = 0.99
 
 [node name="Tutorial" type="Control" parent="."]
 anchors_preset = 0

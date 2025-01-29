@@ -1,0 +1,101 @@
+[gd_scene load_steps=14 format=3 uid="uid://3sb8bwy2r4b"]
+
+[ext_resource type="Texture2D" uid="uid://bekcbhvb2h2gj" path="res://images/fish/crab.png" id="1_rnd11"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4rvie"]
+atlas = ExtResource("1_rnd11")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rykl0"]
+atlas = ExtResource("1_rnd11")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0uc1h"]
+atlas = ExtResource("1_rnd11")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u0qml"]
+atlas = ExtResource("1_rnd11")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qyi7e"]
+atlas = ExtResource("1_rnd11")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jsnwt"]
+atlas = ExtResource("1_rnd11")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n41ef"]
+atlas = ExtResource("1_rnd11")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_borc1"]
+atlas = ExtResource("1_rnd11")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0x5o0"]
+atlas = ExtResource("1_rnd11")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wekd2"]
+atlas = ExtResource("1_rnd11")
+region = Rect2(1152, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jll8n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4rvie")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rykl0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0uc1h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u0qml")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qyi7e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jsnwt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n41ef")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_borc1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0x5o0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wekd2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h8mro"]
+size = Vector2(115, 88)
+
+[node name="Fish" type="RigidBody2D"]
+collision_mask = 2
+mass = 0.001
+gravity_scale = 0.0
+can_sleep = false
+lock_rotation = true
+linear_velocity = Vector2(50, 0)
+linear_damp_mode = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jll8n")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 6)
+shape = SubResource("RectangleShape2D_h8mro")
