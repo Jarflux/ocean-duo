@@ -144,7 +144,7 @@ spawn_area_min_Y = 50.0
 spawn_area_max_Y = 600.0
 fish_or_plastic = 1
 velocity = Vector2(85, 0)
-spawn_threshold = 0.985
+spawn_threshold = 0.99
 
 [node name="FishSpawnerRight" type="Node2D" parent="Level/Spawners"]
 position = Vector2(1, 0)
@@ -156,7 +156,7 @@ spawn_area_max_Y = 600.0
 fish_or_plastic = 1
 flipped = true
 velocity = Vector2(-85, 0)
-spawn_threshold = 0.985
+spawn_threshold = 0.99
 
 [node name="PlasticSpawnerTop" type="Node2D" parent="Level/Spawners"]
 script = ExtResource("4_l5rq7")
@@ -165,7 +165,7 @@ spawn_area_max_X = 1125.0
 spawn_area_min_Y = -100.0
 spawn_area_max_Y = -100.0
 velocity = Vector2(0, 50)
-spawn_threshold = 0.975
+spawn_threshold = 0.98
 
 [node name="Tutorial" type="Control" parent="."]
 anchors_preset = 0
@@ -244,6 +244,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="GUI" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0

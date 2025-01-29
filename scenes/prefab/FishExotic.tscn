@@ -1,51 +1,49 @@
 [gd_scene load_steps=15 format=3 uid="uid://cdsry6bictk47"]
 
-[ext_resource type="Texture2D" uid="uid://c4m5s7rt27mn3" path="res://images/fish/excotic-fish.png" id="1_85pg0"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h8mro"]
+[ext_resource type="Texture2D" uid="uid://c4m5s7rt27mn3" path="res://images/fish/excotic-fish.png" id="1_xyuok"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kk3bs"]
-atlas = ExtResource("1_85pg0")
+atlas = ExtResource("1_xyuok")
 region = Rect2(0, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_meiy1"]
-atlas = ExtResource("1_85pg0")
+atlas = ExtResource("1_xyuok")
 region = Rect2(128, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gn5xs"]
-atlas = ExtResource("1_85pg0")
+atlas = ExtResource("1_xyuok")
 region = Rect2(256, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_03yci"]
-atlas = ExtResource("1_85pg0")
+atlas = ExtResource("1_xyuok")
 region = Rect2(384, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xby8v"]
-atlas = ExtResource("1_85pg0")
+atlas = ExtResource("1_xyuok")
 region = Rect2(512, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_75343"]
-atlas = ExtResource("1_85pg0")
+atlas = ExtResource("1_xyuok")
 region = Rect2(640, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cvpob"]
-atlas = ExtResource("1_85pg0")
+atlas = ExtResource("1_xyuok")
 region = Rect2(768, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3xjrk"]
-atlas = ExtResource("1_85pg0")
+atlas = ExtResource("1_xyuok")
 region = Rect2(896, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_28ljx"]
-atlas = ExtResource("1_85pg0")
+atlas = ExtResource("1_xyuok")
 region = Rect2(1024, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ry6i1"]
-atlas = ExtResource("1_85pg0")
+atlas = ExtResource("1_xyuok")
 region = Rect2(1152, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hbdol"]
-atlas = ExtResource("1_85pg0")
+atlas = ExtResource("1_xyuok")
 region = Rect2(1280, 0, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jll8n"]
@@ -89,6 +87,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h8mro"]
+size = Vector2(64, 48.25)
+
 [node name="Fish" type="RigidBody2D"]
 collision_mask = 2
 mass = 0.001
@@ -97,9 +98,10 @@ can_sleep = false
 lock_rotation = true
 linear_damp_mode = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_h8mro")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_jll8n")
 autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, -1)
+shape = SubResource("RectangleShape2D_h8mro")

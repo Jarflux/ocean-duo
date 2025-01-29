@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://33lccwa25d1w"]
+
+[ext_resource type="Texture2D" uid="uid://daq3l3oow2y32" path="res://images/bottle.png" id="1_44fsq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b6fvi"]
+size = Vector2(20.9051, 48.3543)
+
+[node name="Plastic" type="RigidBody2D"]
+collision_mask = 4
+mass = 0.001
+gravity_scale = 0.0
+can_sleep = false
+lock_rotation = true
+linear_damp_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -0.498054
+texture = ExtResource("1_44fsq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.18116, 1.24945)
+rotation = -0.490967
+shape = SubResource("RectangleShape2D_b6fvi")

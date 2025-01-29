@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://b7tdrkoy7aw30"]
+
+[ext_resource type="Texture2D" uid="uid://cealufkiapn4g" path="res://images/fish/clownfish.png" id="1_e8ca4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8l6h"]
+atlas = ExtResource("1_e8ca4")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_le30u"]
+atlas = ExtResource("1_e8ca4")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8qeh"]
+atlas = ExtResource("1_e8ca4")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wjl6t"]
+atlas = ExtResource("1_e8ca4")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jll8n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y8l6h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_le30u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g8qeh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wjl6t")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h8mro"]
+size = Vector2(25, 10)
+
+[node name="Fish" type="RigidBody2D"]
+collision_mask = 2
+mass = 0.001
+gravity_scale = 0.0
+can_sleep = false
+lock_rotation = true
+linear_damp_mode = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jll8n")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_h8mro")
