@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c0flwujmi120h"]
+[gd_scene load_steps=25 format=3 uid="uid://c0flwujmi120h"]
 
 [ext_resource type="Texture2D" uid="uid://bp8i5sb4di0lw" path="res://images/title-screen-white.png" id="1_7i3c6"]
 [ext_resource type="Texture2D" uid="uid://vr1o4kpmvkjk" path="res://images/green-orb.png" id="2_fymwr"]
@@ -6,8 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://co1y12axqmd6s" path="res://images/red-orb.png" id="4_fqeus"]
 [ext_resource type="Script" path="res://scripts/StartGame.gd" id="6_c0uw3"]
 [ext_resource type="PackedScene" uid="uid://cdsry6bictk47" path="res://scenes/prefab/FishExotic.tscn" id="6_rtn37"]
+[ext_resource type="PackedScene" uid="uid://b7tdrkoy7aw30" path="res://scenes/prefab/FishClown.tscn" id="11_hp6rd"]
 [ext_resource type="PackedScene" uid="uid://5ht5relmd7r5" path="res://scenes/prefab/PlasticBeer.tscn" id="12_ejdql"]
+[ext_resource type="PackedScene" uid="uid://bqpv0cvd7i342" path="res://scenes/prefab/Net.tscn" id="12_pgwvn"]
 [ext_resource type="Texture2D" uid="uid://bekcbhvb2h2gj" path="res://images/fish/crab.png" id="13_3rw7y"]
+[ext_resource type="PackedScene" uid="uid://b2dycm3m2nor3" path="res://scenes/prefab/FishShark.tscn" id="13_puute"]
 [ext_resource type="Texture2D" uid="uid://daq3l3oow2y32" path="res://images/bottle.png" id="13_r2yva"]
 [ext_resource type="Texture2D" uid="uid://b2ckmtfp5emwf" path="res://images/plastic-bag.png" id="14_i6s2k"]
 
@@ -151,7 +154,7 @@ offset_bottom = 40.0
 texture = ExtResource("3_quxfe")
 
 [node name="Plastic" parent="." instance=ExtResource("12_ejdql")]
-position = Vector2(264, 464)
+position = Vector2(152, 496)
 rotation = -0.338829
 mass = 0.003
 freeze = true
@@ -160,7 +163,7 @@ freeze = true
 texture = ExtResource("13_r2yva")
 
 [node name="Plastic2" parent="." instance=ExtResource("12_ejdql")]
-position = Vector2(416, 136)
+position = Vector2(304, 112)
 rotation = 0.717192
 mass = 0.003
 freeze = true
@@ -169,7 +172,7 @@ freeze = true
 texture = ExtResource("14_i6s2k")
 
 [node name="Plastic3" parent="." instance=ExtResource("12_ejdql")]
-position = Vector2(664, 144)
+position = Vector2(912, 280)
 rotation = -0.461178
 mass = 0.003
 sleeping = true
@@ -177,11 +180,29 @@ freeze = true
 
 [node name="Crab" parent="." instance=ExtResource("6_rtn37")]
 position = Vector2(1264, 640)
+freeze = true
 linear_velocity = Vector2(-30, 0)
 
 [node name="AnimatedSprite2D" parent="Crab" index="0"]
-position = Vector2(-320, -56)
+position = Vector2(-448, -56)
 sprite_frames = SubResource("SpriteFrames_24bxw")
+
+[node name="Fish" parent="." instance=ExtResource("11_hp6rd")]
+position = Vector2(920, 392)
+freeze = true
+
+[node name="Fish2" parent="." instance=ExtResource("6_rtn37")]
+position = Vector2(184, 304)
+freeze = true
+
+[node name="Plastic4" parent="." instance=ExtResource("12_pgwvn")]
+position = Vector2(488, 552)
+freeze = true
+
+[node name="Fish3" parent="." instance=ExtResource("13_puute")]
+position = Vector2(728, 160)
+scale = Vector2(-1, 1)
+freeze = true
 
 [editable path="Plastic"]
 [editable path="Plastic2"]

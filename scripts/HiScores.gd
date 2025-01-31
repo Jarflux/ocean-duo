@@ -2,7 +2,7 @@ extends Node
 
 @onready var scores = $Scores
 var prefab = load("res://scenes/prefab/ScoreEntry.tscn")
-var scores_dict = {"Tyler1": 599, "Thor": 475, "Sodapoppin":369, "xQc": 328, "Xaryu": 255, "Mizkif": 150, "esfand": 133, "itmeJP": 99, "Me": 1}
+var scores_dict = {"Tyler1": 599, "Thor": 475, "Sodapoppin":369, "xQc": 328, "Xaryu": 255, "Mizkif": 150, "esfand": 133, "itmeJP": 99}
 
 func showScores(score):
 	clearScores()

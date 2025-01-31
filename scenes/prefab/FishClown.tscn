@@ -39,7 +39,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h8mro"]
-size = Vector2(25, 10)
+size = Vector2(44, 24)
 
 [node name="Fish" type="RigidBody2D"]
 collision_mask = 2
@@ -51,9 +51,10 @@ linear_velocity = Vector2(30, 0)
 linear_damp_mode = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_jll8n")
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 0)
+position = Vector2(3, 1)
 shape = SubResource("RectangleShape2D_h8mro")
