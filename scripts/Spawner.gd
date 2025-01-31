@@ -57,10 +57,10 @@ func _createPlastic():
 	if  selector > 0.50 && selector <= 0.75:
 		spawned = plastic3.instantiate()
 		spawned.set_meta("class","Plastic")
-	if selector > 0.75 && selector <= 0.99:
+	if selector > 0.75 && selector <= 0.98:
 		spawned = knife.instantiate()
 		spawned.set_meta("class","Fish")
-	if selector > 0.99:
+	if selector > 0.98:
 		spawned = net.instantiate()
 		spawned.set_meta("class","Net")	
 	return spawned
