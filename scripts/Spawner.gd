@@ -18,6 +18,7 @@ var plastic1 = load("res://scenes/prefab/PlasticBottle.tscn")
 var plastic2 = load("res://scenes/prefab/PlasticBeer.tscn")
 var plastic3 = load("res://scenes/prefab/PlasticBag.tscn")
 var spawnedObjects 
+var netCounter = 0;
 
 var rng = RandomNumberGenerator.new()
 
@@ -25,12 +26,13 @@ func _ready():
 	spawnedObjects = get_node("/root/Game/Level/SpawnedObjects")
 	
 func _process(float) -> void:
+	netCounter = netCounter + 1;
 	if self.get_parent().get_parent().visible:
 		# Decide if to spawn object
 		if rng.randf() > spawn_threshold:
 			# Decide where to spawn
-			var x = rng.randf_range(spawn_area_min_X, spawn_area_max_X);
-			var y = rng.randf_range(spawn_area_min_Y, spawn_area_max_Y);
+			var x = rng.randi_range(spawn_area_min_X, spawn_area_max_X);
+			var y = rng.randi_range(spawn_area_min_Y, spawn_area_max_Y);
 			# Instantiate Object
 			var spawned
 			if fish_or_plastic == 0:
@@ -61,8 +63,13 @@ func _createPlastic():
 		spawned = knife.instantiate()
 		spawned.set_meta("class","Fish")
 	if selector > 0.98:
-		spawned = net.instantiate()
-		spawned.set_meta("class","Net")	
+		if netCounter > 3600:
+			netCounter = 0;
+			spawned = net.instantiate()
+			spawned.set_meta("class","Net")
+		else:
+			spawned = plastic3.instantiate()
+			spawned.set_meta("class","Plastic")
 	return spawned
 	
 func _createFish():	

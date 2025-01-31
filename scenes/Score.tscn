@@ -76,6 +76,7 @@ texture = ExtResource("4_1esce")
 position = Vector2(120, 480)
 rotation = -0.338829
 mass = 0.003
+sleeping = true
 freeze = true
 
 [node name="Sprite2D" parent="Plastic" index="0"]
@@ -85,6 +86,7 @@ texture = ExtResource("7_6n7kv")
 position = Vector2(112, 80)
 rotation = 0.717192
 mass = 0.003
+sleeping = true
 freeze = true
 
 [node name="Sprite2D" parent="Plastic2" index="0"]
